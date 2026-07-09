@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* INO-VAP ZONE Brand Colors */
+    --navy-900: 210 100% 15%;
+    --navy-800: 210 80% 20%;
+    --navy-700: 210 70% 25%;
+    --navy-600: 210 60% 30%;
+    --navy-500: 210 50% 35%;
+
+    /* Stainless Steel Silver */
+    --steel-100: 0 0% 96%;
+    --steel-200: 0 0% 90%;
+    --steel-300: 0 0% 82%;
+    --steel-400: 0 0% 70%;
+    --steel-500: 0 0% 55%;
+
+    /* Base theme */
+    --background: 0 0% 100%;
+    --foreground: 210 50% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    /* Primary: Dark Navy Blue */
+    --primary: 210 100% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Steel Silver */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 210 50% 15%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Accent: Navy */
+    --accent: 210 60% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 210 100% 18%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--steel-200));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--navy-600));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--navy-700));
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium selection color */
+::selection {
+  background: hsl(var(--navy-600));
+  color: white;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid hsl(var(--navy-500));
+  outline-offset: 2px;
+}
+
+/* Grid background pattern for industrial feel */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Metallic gradient for premium elements */
+.metallic-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--steel-200)) 0%,
+    hsl(var(--steel-100)) 50%,
+    hsl(var(--steel-200)) 100%
+  );
+}
+
+/* Stainless steel shine effect */
+.steel-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,0.3) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Stagger delay utilities */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
